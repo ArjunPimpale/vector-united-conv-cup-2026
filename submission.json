@@ -1,0 +1,8 @@
+{
+  "name": "Vector United v5",
+  "command": [
+    "python3",
+    "-m",
+    "team_bot.bot"
+  ]
+}

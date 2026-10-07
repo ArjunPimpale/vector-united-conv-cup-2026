@@ -1,0 +1,35 @@
+{
+  "team": "Vector United v5",
+  "version": "v5",
+  "competition": "Conv-Cup 2026",
+  "status": "Frozen V5 submission; no experimental command flags.",
+  "python_minimum": "3.11",
+  "runtime_dependencies": [],
+  "launch_command": [
+    "python3",
+    "-m",
+    "team_bot.bot"
+  ],
+  "evaluated_archive_sha256": "bd504c8446a656ef1cd4b5d4762bd794182e8bd34515c9a2782675ca6164949b",
+  "files_sha256": {
+    "requirements.txt": "d195d93d1dbb2461b703d41642ba0796d275e4cd0438897c2f11f824f578a3e9",
+    "submission.json": "577287c0d9abb8af3c675f34bc7422fa6970f8680137ac7b7cb8ad56eb862bbf",
+    "team_bot/__init__.py": "8f4c3c325a221ae88ee9e78af0efeda69fa18942d80c8d9a9c0adedefb86c1d2",
+    "team_bot/attack.py": "a2e3f9f62d8fe7a7d9e21def321884557691533a72a5b8715774bf79b445e163",
+    "team_bot/baseline_attack.py": "883019babf20bfb5198a75bbcedf71ee55acfa32c8a1b475c576135871f9f730",
+    "team_bot/bot.py": "6e3bc6fd3a88ca21299093205a3bae361456a4022e0fcd6cdfdb22cd2eab1ecb",
+    "team_bot/defense.py": "6635d3592102f4db2c8c4bebc196abcb7ac77197140d43a1dc66b7dc1e232395",
+    "team_bot/geometry.py": "69fed310e9aae4dd8e477aa09a8c27f8e854803829444143c958400d32f67f2b",
+    "team_bot/legacy.py": "c8e4d398bf983ea8f56a68fdb6e7d139aeff3ac0f5c1f578bd376c8ee776e6c9",
+    "team_bot/legacy_attack.py": "c7a0f15d4896a473950f66f551aeb849eb038fdef63c1831e54bc9ed1225b71d",
+    "team_bot/memory.py": "4598fb29088a329669b374a688bcad5b092d14eeb97bf310989453ae499e19f4",
+    "team_bot/model.py": "338c63526abeedbb4c0ac57268c5f0d16f9507348468744fffd06fb1d9de1fb1",
+    "team_bot/motion.py": "40f10e0d5a00186ab28c16e03f7859c43c06dffabdd58a829dd64efd0fd29c2d",
+    "team_bot/opponent.py": "08e7db1ea1b1559599f7af1f381ebd0783f1cbbef0b6bfae304621095d5e5c25",
+    "team_bot/outcomes.py": "f6f9a1b9c598b133251f03416e09fcc06137764ceaa294168e868a54f534920b",
+    "team_bot/policy.py": "eb303e0731723dabf3e0cbe6987a9230586855861284496f1f774c33b116b035",
+    "team_bot/reachability.py": "a665a8c77d790004a372e22335e62b7531cd0b499952fc4a6758f15447ece8d2",
+    "team_bot/rules.py": "6c00b03498ae89eccb0b47627941e025f91464d0855089fc23579f3ce7831069"
+  },
+  "integrity_scope": "Exact evaluated V5 Python source, submission.json and requirements.txt. README is rewritten for standalone organizer use."
+}

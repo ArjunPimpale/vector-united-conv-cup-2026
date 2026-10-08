@@ -1,103 +1,76 @@
-# Vector United — Conv-Cup 2026
+# Vector United submission — Exact Planner v23
 
-Final submission: **Vector United v5**. This repository contains the standalone
-bot for the official AI Soccer Arena JSON-lines process interface. The Python
-source and launch descriptor are unchanged from the evaluated V5 release.
-No alternative bot versions are included.
+Selected competition submission: **Exact Planner v23**, supplied by our teammate/friend.
+This release replaces the previous Vector United V5 submission. The planner source,
+parameters, launch descriptor and requirements are byte-identical to the evaluated
+`exact-planner-v23` release. No alternate bots or simulator files are required here.
 
-## Requirements
+## Requirements and organizer launch
 
-- Python **3.11 or newer**.
-- Python standard library only; no packages need to be installed.
-- No model download, external service, internet connection or credentials.
-- No simulator installation is required inside this repository. The organizer
-  supplies the official engine and match runner separately.
+Python **3.11 or newer**, standard library only. There are no packages to install,
+model downloads, external APIs, network calls or credentials.
 
-This is a code-only planning policy. All policy logic is under `team_bot/`;
-there are no external weights or missing model files.
-
-## Organizer launch
-
-Clone the repository and use its root `submission.json` with the official runner.
-The runner must use the cloned repository root as the bot's working directory.
-The descriptor specifies the exact final command:
-
-```json
-{
-  "name": "Vector United v5",
-  "command": ["python3", "-m", "team_bot.bot"]
-}
-```
-
-For direct launch from this repository root:
+Use the root `submission.json` with the organizer's official runner. Set the bot's
+working directory to this repository's root. The prescribed command is:
 
 ```bash
-python3 -m team_bot.bot
+python -m team_bot.bot --model team_bot/models/params.json
 ```
 
-The process waits for the organizer's observation messages on standard input.
-It is not a graphical simulator and produces no action until an observation
-arrives. It reads one newline-delimited JSON observation at a time, writes one
-action JSON line to standard output, flushes immediately, and exits on
-`{"type":"match_end"}`. Diagnostics use standard error. Launch with no extra
-flags to preserve the submitted V5 behavior.
+The process waits for newline-delimited JSON observations on standard input,
+returns one flushed action JSON line per observation on standard output, and exits
+on `{"type":"match_end"}`. Diagnostics go to standard error. It controls only its
+own player through the prescribed action interface. The organizer provides the
+engine and fixed arena configuration separately.
 
-## Required repository structure
+## Included files
 
 ```text
-README.md
-requirements.txt
 submission.json
-V5_LOCK.json
+requirements.txt
+README.md
+V23_LOCK.json
 team_bot/
   __init__.py
   bot.py
   policy.py
-  ... all supporting Python modules
+  frame.py
+  physics.py
+  planner.py
+  opponent_model.py
+  models/
+    params.json
 ```
 
-`submission.json` is at the repository root. No outer `versions/v5/` directory
-or nested ZIP needs to be located or extracted. `V5_LOCK.json` records SHA-256
-checksums for the frozen runtime files and the previously evaluated V5 archive.
-The launch command does not depend on any files outside this repository.
+`bot.py` implements the process interface. `policy.py` selects possession, defense
+and loose-ball behavior; `frame.py` transforms the observation into its planning
+frame; `physics.py` predicts ball motion locally; `planner.py` evaluates actions;
+`opponent_model.py` estimates opponent behavior. `params.json` contains the shipped
+planner settings and is required by the launch command. The planner does not need
+neural weights or the other development repository. Its local physics predictor
+does not modify the official engine. `V23_LOCK.json` records runtime file checksums.
 
 ## Official validation and packaging
 
-From the organizer's supplied `participants/` directory, replace
-`/absolute/path/to/vector-united-conv-cup-2026` below with the cloned repository
-path. These scripts belong to the official kit; they are not bot dependencies.
+From the official participant kit, substitute the cloned repository's absolute
+path for `/path/to/vector-united-conv-cup-2026`:
 
 ```bash
-python3 validate_submission.py --submission /absolute/path/to/vector-united-conv-cup-2026/submission.json --matches-per-side 2 --seed 7000 --timeout 2
-python3 package_submission.py /absolute/path/to/vector-united-conv-cup-2026 dist/vector-united-v5.zip
-python3 check_submission.py dist/vector-united-v5.zip --report dist/vector-united-v5-report.json
+python validate_submission.py --submission /path/to/vector-united-conv-cup-2026/submission.json --matches-per-side 1 --seed 7000 --timeout 2
+python package_submission.py /path/to/vector-united-conv-cup-2026 dist/exact-planner-v23.zip
+python check_submission.py dist/exact-planner-v23.zip --report dist/exact-planner-v23-report.json
 ```
 
-Validation must finish on both sides with zero participant action errors, and
-the archive checker must report `PASS`. The official packager puts the contents
-of this repository at the ZIP root and excludes `.git` and Python caches.
-Store the ZIP and validation outputs outside this repository. Do not include
-virtual environments, logs, credentials, training data or other bots.
+The ZIP places `submission.json` and `team_bot/` at its root. Keep generated ZIPs,
+validation logs and the arena outside this repository. The official packager
+excludes Git metadata and Python caches.
 
-The exact original V5 policy was evaluated in 1,300 official process games
-against thirteen rivals, over fifty obstacle layouts and both sides, with zero
-participant action errors. The original V5 archive also passed the official
-static checker and an extracted-archive process match on each side. Packaging
-checks do not count toward the competitive evaluation results.
+## Selection evidence
 
-## Publish this folder
-
-Create a GitHub repository named `vector-united-conv-cup-2026` accessible to the
-organizers. Initialize Git in **this folder**. Explicitly stage the submission
-files to avoid accidentally committing generated caches:
-
-```bash
-git init -b main
-git add README.md requirements.txt submission.json V5_LOCK.json team_bot/*.py
-git commit -m "Submit frozen Vector United v5 for Conv-Cup 2026"
-git remote add origin https://github.com/YOUR_USERNAME/vector-united-conv-cup-2026.git
-git push -u origin main
-```
-
-Submit the repository URL requested by the form. Keep this V5 source and
-`submission.json` fixed after submission.
+The bounded comparison used 48 new official-process games and 20 unchanged prior
+V7 games. Directly against V7, v23 recorded **4 wins, 7 draws and 1 loss** across
+six layouts with both sides tested. Against the shared rival panel it recorded
+**9 wins, 18 draws and 1 loss** in 28 matches. It was selected for defensive
+resilience; frequent draws and its observed V5 weakness remain limitations.
+These results do not guarantee performance against unseen entrants or establish
+championship odds. The organizers determine the actual tournament and tie breaks.

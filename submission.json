@@ -1,8 +1,10 @@
 {
-  "name": "Vector United v5",
+  "name": "Exact Planner",
   "command": [
-    "python3",
+    "python",
     "-m",
-    "team_bot.bot"
+    "team_bot.bot",
+    "--model",
+    "team_bot/models/params.json"
   ]
 }

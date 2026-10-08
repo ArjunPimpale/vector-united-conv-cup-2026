@@ -1,1 +1,1 @@
-"""Offline competition agent."""
+"""Participant bot package."""

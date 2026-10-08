@@ -1,0 +1,28 @@
+{
+  "selected_agent": "Exact Planner v23",
+  "selected_date": "2026-10-08",
+  "source_release": "exact-planner-v23",
+  "source_fingerprint_sha256": "73ab5a6069463447887be78b50926cfab3f3c5b2097cdf40877acce0e48f5710",
+  "runtime_matches_evaluated_release": true,
+  "python_minimum": "3.11",
+  "runtime_dependencies": [],
+  "launch_command": [
+    "python",
+    "-m",
+    "team_bot.bot",
+    "--model",
+    "team_bot/models/params.json"
+  ],
+  "files_sha256": {
+    "submission.json": "86bf07b6f3cd7fb8ac6e851fa6962bb75e54272f96e53dde526e5f5bf2f83e67",
+    "requirements.txt": "d8e43de66df21a9d9b6a46a8ce831e91d67d96dc0dd82af99814a928768f9131",
+    "team_bot/__init__.py": "bf3b2666cbfb4c709c01e24cea00c3a5c1d902284fd6e40fe1dbaebffaff0228",
+    "team_bot/bot.py": "9e0d541d31aeba98f4be9f2d58782c6722e272d9ac12d9fbd82ae1e348af2275",
+    "team_bot/frame.py": "77afb0de4034882107b87dd0e8f8bbf5295852b03cd488537d76904b7bfaf3ca",
+    "team_bot/models/params.json": "adc7ee74e749041288679b8946a9b56a4a2febcf28aa45310e4e8fc0f7c5c4ce",
+    "team_bot/opponent_model.py": "ed8f4323735add9f323ec729ef681722c063a2e595d24bead88b233a7a310570",
+    "team_bot/physics.py": "5e236689898ce30806583c1a7e77fbcfa300edadc9bc9e6294fad2405e6ca6de",
+    "team_bot/planner.py": "2cad362181051136a799a7f67e1e7a072a81a63f8adaa0d57c9ec89b021ce98e",
+    "team_bot/policy.py": "d595480a543812966e9741bfa0d57ab3d19304d828a62f27beaa1b890dfa32da"
+  }
+}

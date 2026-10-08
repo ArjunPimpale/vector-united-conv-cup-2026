@@ -1,9 +1,15 @@
 {
+  "team": "IDK",
+  "team_members": [
+    "Arjun Pimpale (team leader)",
+    "Rohan Patil"
+  ],
   "selected_agent": "Exact Planner v23",
   "selected_date": "2026-10-08",
   "source_release": "exact-planner-v23",
-  "source_fingerprint_sha256": "73ab5a6069463447887be78b50926cfab3f3c5b2097cdf40877acce0e48f5710",
+  "evaluated_archive_sha256": "57819572a545074a84af75e9dcd1f44c327884f9e78abec0445626f70996f079",
   "runtime_matches_evaluated_release": true,
+  "runtime_note": "Code, params.json, requirements.txt and the launch command are byte-identical to the evaluated archive; submission.json differs only in its public team name ('Exact Planner' -> 'IDK').",
   "python_minimum": "3.11",
   "runtime_dependencies": [],
   "launch_command": [
@@ -13,8 +19,10 @@
     "--model",
     "team_bot/models/params.json"
   ],
+  "files_manifest_sha256": "5ddf640b74c18f81e12d9bcfb89a30f82eaaab008238a82b2d63fba9c155caff",
+  "files_manifest_recipe": "LC_ALL=C sort the files_sha256 paths, then: sha256sum <paths> | sha256sum",
   "files_sha256": {
-    "submission.json": "86bf07b6f3cd7fb8ac6e851fa6962bb75e54272f96e53dde526e5f5bf2f83e67",
+    "submission.json": "d070cfea1c2f30a168cb40590e360a86413370dc7d3bc33b1409aec70779078b",
     "requirements.txt": "d8e43de66df21a9d9b6a46a8ce831e91d67d96dc0dd82af99814a928768f9131",
     "team_bot/__init__.py": "bf3b2666cbfb4c709c01e24cea00c3a5c1d902284fd6e40fe1dbaebffaff0228",
     "team_bot/bot.py": "9e0d541d31aeba98f4be9f2d58782c6722e272d9ac12d9fbd82ae1e348af2275",
